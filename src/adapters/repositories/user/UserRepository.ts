@@ -6,7 +6,16 @@ import { User } from "../../../domain/user/User";
 
 export class UserRepository implements IUserRepository {
   async Get(email: string): Promise<User> {
-    throw new Error("Method not implemented.");
+    const entityManager = dataBase.connection.manager;
+    const entity = await entityManager.findOne(UserModel, {
+      where: { email },
+    });
+    if (!entity) {
+      return null;
+    }
+    const user = new User(entity.uid, email, entity.disPlayName, entity.phoneNumber);
+    user.SetUserId(entity.userId);
+    return user;
   }
   async Create(user: User): Promise<User> {
     const language = user?.language ? user.language : config.params.defaultLang;
@@ -34,7 +43,7 @@ export class UserRepository implements IUserRepository {
   async Update(user: User): Promise<User> {
     const language = user?.language ? user.language : config.params.defaultLang;
     const entityManager = dataBase.connection.manager;
-    await entityManager
+    const result = await entityManager
       .createQueryBuilder()
       .update(UserModel)
       .set({

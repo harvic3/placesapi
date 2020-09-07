@@ -27,6 +27,14 @@ export class CreateUserUseCase extends BaseUseCase {
     ) {
       return result;
     }
+    const exists = await this.userRepository.Get(userDto.email);
+    if (exists) {
+      result.SetError(
+        this.resources.Get(this.resourceKeys.EMAIL_ALREADY_EXISTS),
+        this.resultCodes.BAD_REQUEST,
+      );
+      return result;
+    }
     const newUser = await this.userProvider.Create(userDto, password);
     if (!newUser) {
       result.SetError(
@@ -43,6 +51,7 @@ export class CreateUserUseCase extends BaseUseCase {
       );
       return result;
     }
+    await this.userProvider.UpdateClaims(registerUser.uid, registerUser.userId);
     result.SetMessage(
       this.resources.GetWithParams(this.resourceKeys.ELEMENT_WAS_CREATED, {
         elementName: this.resources.Get(this.resourceKeys.USER),

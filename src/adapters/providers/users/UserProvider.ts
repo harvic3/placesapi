@@ -25,4 +25,10 @@ export class UserProvider implements IUserProvider {
   async Delete(uid: string): Promise<void> {
     throw new Error("Method not implemented.");
   }
+  async UpdateClaims(userUid: string, userId: number): Promise<void> {
+    const claims = {
+      localId: userId,
+    };
+    await fireBaseAdmin.auth().setCustomUserClaims(userUid, claims);
+  }
 }

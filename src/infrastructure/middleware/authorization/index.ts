@@ -4,6 +4,7 @@ import * as resultCodes from "../../../application/shared/result/resultCodes.jso
 import { BaseRequest, Response, NextFunction } from "../../server/CoreModules";
 import fireBaseAdmin from "../../../adapters/providers/firebaseAdmin/index";
 import { Session } from "../../../domain/session/Session";
+import config from "../../config/index";
 
 export default function () {
   return async function (req: BaseRequest, res: Response, next: NextFunction): Promise<void> {
@@ -35,7 +36,9 @@ export default function () {
     try {
       const decodedToken = await fireBaseAdmin.auth().verifyIdToken(bearerToken);
       if (decodedToken.email) {
-        req.session = (<unknown>decodedToken) as Session;
+        const session = (<unknown>decodedToken) as Session;
+        session.language = req.headers["accept-language"] || config.params.defaultLang;
+        req.session = session;
       }
     } catch (error) {
       throw new ApplicationError(

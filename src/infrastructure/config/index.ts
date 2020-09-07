@@ -22,6 +22,10 @@ export default {
     Auth_Url: process.env.FIREBASE_AUTH_URL || null,
     Auth_Key: process.env.FIREBASE_AUTH_KEY || null,
   },
+  placesApi: {
+    url: process.env.PLACES_API_URL || null,
+    key: process.env.PLACES_API_SECRET_KEY || null,
+  },
   params: {
     envs: {
       dev,
@@ -34,6 +38,6 @@ export default {
     },
     defaultLang: process.env.DEFAULT_LANGUAGE || "en",
     requestRate: process.env.RATE_REQUEST || 120,
-    requestDataLimit: process.env.REQUEST_DATA_LIMIT || "10kb",
+    requestDataLimit: process.env.REQUEST_DATA_LIMIT || "15kb",
   },
 };

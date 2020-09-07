@@ -3,6 +3,7 @@ export class Session {
   email: string;
   displayName: string;
   phoneNumber: string;
-  claims: { [key: string]: boolean };
+  claims: { [key: string]: unknown };
   language: string;
+  localId: number;
 }

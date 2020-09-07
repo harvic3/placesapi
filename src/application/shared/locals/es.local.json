@@ -8,6 +8,9 @@
   "ELEMENT_WAS_CREATED": "El {{elementName}} fue creado(a).",
   "ELEMENT_WAS_UPDATED": "El {{elementName}} fue actualizado(a).",
   "INVALID_PARAM_VALUE": "El valor de {{paramName}} no es válido",
+  "EMAIL_ALREADY_EXISTS": "Ya existe un usuario con ese correo.",
+  "NOT_VALID_SEARCH": "La búsqueda es inválida, debe enviar el nombre de una ciudad, o un punto de geolocalización con lat, lng y radio.",
+  "NON_CONFIGURED_PROVIDER": "EL proveedor {{providerName}} no ha sido configurado. Require {{params}}.",
   "USER": "usuario",
   "PHONE": "teléfono",
   "EMAIL": "correo electrónico"
