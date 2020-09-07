@@ -1,0 +1,69 @@
+version: "3.3"
+
+services:
+  tybapp-db:
+    image: mysql:8.0.21
+    container_name: tybapp-db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE=$TYPEORM_DATABASE
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_USER=$TYPEORM_USERNAME
+      - MYSQL_PASSWORD=$TYPEORM_PASSWORD
+      - SERVICE_TAGS=db
+      - SERVICE_NAME=mysql
+    ports:
+      - 3636:3306
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - tybapp-network
+
+  tybapp-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs:12.18.3-buster
+    container_name: tybapp-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=$NODE_ENV
+      - SERVER_ROOT=$SERVER_ROOT
+      - SERVER_HOST=$SERVER_HOST
+      - SERVER_PORT=$SERVER_PORT
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - TYPEORM_CONNECTION=$TYPEORM_CONNECTION
+      - TYPEORM_HOST=$DOCKER_TYPEORM_HOST
+      - TYPEORM_PORT=$TYPEORM_PORT
+      - TYPEORM_USERNAME=$TYPEORM_USERNAME
+      - TYPEORM_PASSWORD=$TYPEORM_PASSWORD
+      - TYPEORM_DATABASE=$TYPEORM_DATABASE
+      - TYPEORM_SYNCHRONIZE=$TYPEORM_SYNCHRONIZE
+      - TYPEORM_LOGGING=$TYPEORM_LOGGING
+      - TYPEORM_ENTITIES=$TYPEORM_ENTITIES
+      - TYPEORM_MIGRATIONS=$TYPEORM_MIGRATIONS
+      - TYPEORM_MIGRATIONS_RUN=$TYPEORM_MIGRATIONS_RUN
+      - TYPEORM_MIGRATIONS_DIR=$TYPEORM_MIGRATIONS_DIR
+      - API_SECRET_KEY=$API_SECRET_KEY
+      - WAIT_HOSTS=tybapp-db:3306
+      - WAIT_HOSTS_TIMEOUT=120
+      - WAIT_HOST_CONNECT_TIMEOUT=5
+      - WAIT_SLEEP_INTERVAL=10
+    ports:
+      - "2020:3003"
+    volumes:
+      - .:/usr/node/app
+      - /usr/node/app/dist
+      - /usr/node/app/node_modules
+    networks:
+      - tybapp-network
+    command: >
+      sh -c "/wait && npm run start"
+    depends_on:
+      - tybapp-db
+
+networks:
+  tybapp-network:
+    driver: bridge

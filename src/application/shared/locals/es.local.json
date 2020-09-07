@@ -1,0 +1,14 @@
+{
+  "AUTHORIZATION_REQUIRED": "La autorización es requerida.",
+  "AUTHORIZATION_ERROR": "Error con la autorización: ",
+  "SOMETHING_WENT_WRONG": "Oh, lo sentimos, algo no salió bien con esta acción!",
+  "SOME_PARAMETERS_ARE_MISSING": "Faltan algunos parámetros: {{missingParams}}.",
+  "PROCESSING_DATA_CLIENT_ERROR": "Error procesando la data en el cliente http.",
+  "USER_PROVIDER_ERROR": "ocurrió un error inesperado con el proveedor de usuarios.",
+  "ELEMENT_WAS_CREATED": "El {{elementName}} fue creado(a).",
+  "ELEMENT_WAS_UPDATED": "El {{elementName}} fue actualizado(a).",
+  "INVALID_PARAM_VALUE": "El valor de {{paramName}} no es válido",
+  "USER": "usuario",
+  "PHONE": "teléfono",
+  "EMAIL": "correo electrónico"
+}

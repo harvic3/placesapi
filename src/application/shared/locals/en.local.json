@@ -1,0 +1,14 @@
+{
+  "AUTHORIZATION_REQUIRED": "Authorization is required.",
+  "AUTHORIZATION_ERROR": "Error with authorization: ",
+  "SOMETHING_WENT_WRONG": "Oh sorry, something went wrong with current action!",
+  "SOME_PARAMETERS_ARE_MISSING": "Some parameters are missing: {{missingParams}}.",
+  "PROCESSING_DATA_CLIENT_ERROR": "Error processing http client data.",
+  "USER_PROVIDER_ERROR": "An unexpected error occurred with the user provider.",
+  "ELEMENT_WAS_CREATED": "The {{elementName}} was created.",
+  "ELEMENT_WAS_UPDATED": "The {{elementName}} was updated.",
+  "INVALID_PARAM_VALUE": "Value for {{paramName}} is not valid",
+  "USER": "user",
+  "PHONE": "phone number",
+  "EMAIL": "email"
+}

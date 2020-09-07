@@ -1,0 +1,16 @@
+.vscode
+/node_modules
+/coverage
+/docs
+/dist
+npm-debug.log
+Dockerfile
+README.md
+.env.EXAMPLE
+.git
+.gitignore
+.eslintignore
+.eslintrc.json
+.prettierignore
+.prettierrc
+docker-compose
