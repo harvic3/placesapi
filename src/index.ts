@@ -1,5 +1,4 @@
 import BaseController from "./adapters/controllers/BaseController";
-import dataBase from "./infrastructure/dataBase/index";
 import App from "./infrastructure/server/App";
 import "express-async-errors";
 import "reflect-metadata";
@@ -20,13 +19,4 @@ const controllers: BaseController[] = [
 
 const app = new App(controllers);
 
-dataBase
-  .Initialize()
-  .then((result) => {
-    if (result) {
-      app.Listen();
-    }
-  })
-  .catch((error) => {
-    console.log("DATABASE ERROR:", error);
-  });
+app.Start();

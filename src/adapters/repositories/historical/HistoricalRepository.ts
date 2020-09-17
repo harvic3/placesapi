@@ -10,7 +10,7 @@ export class HistoricalRepository implements IHistoricalRepository {
     const entities = await dataBase.connection
       .getRepository(HistoricalModel)
       .createQueryBuilder("historical")
-      .where("historical.usrId = :id", { id: userId })
+      .where("historical.userId = :id", { id: userId })
       .getMany();
     if (!entities) {
       return null;

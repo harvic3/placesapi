@@ -1,5 +1,5 @@
-import * as firebaseAdmin from "firebase-admin";
 import config from "../../../infrastructure/config";
+import * as firebaseAdmin from "firebase-admin";
 
 const credentials = {
   type: config.firebase.credentials.type,

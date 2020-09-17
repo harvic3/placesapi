@@ -26,17 +26,19 @@ fbcreds.json
 # Dependency directory
 node_modules
 bower_components
+docker-compose
 
 # Editors
 .idea
 *.iml
+.vscode
 
 # OS metadata
 .DS_Store
 Thumbs.db
 
 # Ignore built ts files
-dist/**/*
+dist
 
 # ignore yarn.lock
 yarn.lock

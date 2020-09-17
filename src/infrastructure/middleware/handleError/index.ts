@@ -1,8 +1,8 @@
 import { ApplicationError } from "../../../application/shared/errors/ApplicationError";
-import { Request, Response, NextFunction } from "../../server/CoreModules";
+import { Request, Response, NextFunction } from "../../server/core/CoreModules";
+import resources from "../../../application/shared/locals";
 import { Result } from "result-tsk";
 import config from "../../config";
-import resources from "../../../application/shared/locals";
 
 export default function () {
   return async function (

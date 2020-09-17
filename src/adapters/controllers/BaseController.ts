@@ -1,10 +1,10 @@
-import { Router, Response, RouterType } from "../../infrastructure/server/CoreModules";
+import { Router, Response, RouterType } from "../../infrastructure/server/core/CoreModules";
 export {
   Request,
   Response,
   NextFunction,
   BaseRequest,
-} from "../../infrastructure/server/CoreModules";
+} from "../../infrastructure/server/core/CoreModules";
 import { IResult } from "result-tsk";
 
 export default class BaseController {
