@@ -1,5 +1,5 @@
 import BaseController, { BaseRequest, Response, NextFunction } from "../BaseController";
-import * as resultCodes from "../../../application/shared/result/resultCodes.json";
+import * as resultCodes from "../../../application/shared/errors/codes.json";
 import config from "../../../infrastructure/config/index";
 import * as moment from "moment";
 

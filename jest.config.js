@@ -5,6 +5,8 @@ module.exports = {
   modulePathIgnorePatterns: [
     "./src/infrastructure/",
     "./src/adapters/",
+    "./src/application/mocks/",
     "./src/application/shared/",
+    "./src/fbCreds.json",
   ],
 };

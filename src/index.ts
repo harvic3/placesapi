@@ -8,6 +8,7 @@ import healthController from "./adapters/controllers/health/HealthController";
 import authController from "./adapters/controllers/auth/AuthController";
 import userController from "./adapters/controllers/user/UserController";
 import placeController from "./adapters/controllers/place/PlaceController";
+import historicalController from "./adapters/controllers/historical/HistoricalController";
 // End controllers
 
 const controllers: BaseController[] = [
@@ -15,6 +16,7 @@ const controllers: BaseController[] = [
   authController,
   userController,
   placeController,
+  historicalController,
 ];
 
 const app = new App(controllers);

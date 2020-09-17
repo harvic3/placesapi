@@ -1,6 +1,6 @@
 import resources, { resourceKeys, Resources } from "../locals/index";
 export { IResultT, ResultT, Result, IResult } from "result-tsk";
-import * as resultCodes from "../result/resultCodes.json";
+import * as resultCodes from "../errors/codes.json";
 import { Validator } from "validator-tsk";
 import mapper, { IMap } from "mapper-tsk";
 

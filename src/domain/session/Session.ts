@@ -6,4 +6,11 @@ export class Session {
   claims: { [key: string]: unknown };
   language: string;
   localId: number;
+
+  static IsValidSession(session: Session): boolean {
+    if (!session || !session.uid || !session.email || !session.displayName) {
+      return false;
+    }
+    return true;
+  }
 }

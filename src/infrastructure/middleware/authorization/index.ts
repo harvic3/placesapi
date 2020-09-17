@@ -1,6 +1,6 @@
 import { ApplicationError } from "../../../application/shared/errors/ApplicationError";
 import resources, { resourceKeys } from "../../../application/shared/locals/index";
-import * as resultCodes from "../../../application/shared/result/resultCodes.json";
+import * as resultCodes from "../../../application/shared/errors/codes.json";
 import { BaseRequest, Response, NextFunction } from "../../server/core/CoreModules";
 import fireBaseAdmin from "../../../adapters/providers/firebaseAdmin/index";
 import { Session } from "../../../domain/session/Session";

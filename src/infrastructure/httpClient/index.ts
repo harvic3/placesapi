@@ -1,7 +1,7 @@
 import fetch, { BodyInit as BodyType, Headers, Request, RequestInit, Response } from "node-fetch";
 import { ApplicationError } from "../../application/shared/errors/ApplicationError";
 import resources, { resourceKeys } from "../../application/shared/locals/index";
-import * as resultCodes from "../../application/shared/result/resultCodes.json";
+import * as resultCodes from "../../application/shared/errors/codes.json";
 export { BodyInit as BodyType, Headers } from "node-fetch";
 import { Options } from "./Options";
 import TResponse from "./TResponse";

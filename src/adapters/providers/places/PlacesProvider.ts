@@ -1,6 +1,6 @@
 import { IPlacesProvider } from "../../../application/modules/places/providerContracts/IPlaceProvider";
 import { ApplicationError } from "../../../application/shared/errors/ApplicationError";
-import * as resultCodes from "../../../application/shared/result/resultCodes.json";
+import * as resultCodes from "../../../application/shared/errors/codes.json";
 import { SearchDto } from "../../../application/modules/places/dtos/SearchDto";
 import { PlaceDto } from "../../../application/modules/places/dtos/PlaceDto";
 import resources, { resourceKeys } from "../../../application/shared/locals";

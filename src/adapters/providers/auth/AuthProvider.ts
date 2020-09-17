@@ -1,6 +1,6 @@
 import { IAuthProvider } from "../../../application/modules/auth/providerContracts/IAuthProvider";
 import { ApplicationError } from "../../../application/shared/errors/ApplicationError";
-import * as resultCodes from "../../../application/shared/result/resultCodes.json";
+import * as resultCodes from "../../../application/shared/errors/codes.json";
 import httpClient, { Headers } from "../../../infrastructure/httpClient/index";
 import resources, { resourceKeys } from "../../../application/shared/locals";
 import { JwtDto } from "../../../application/modules/auth/dtos/JwtDto";
