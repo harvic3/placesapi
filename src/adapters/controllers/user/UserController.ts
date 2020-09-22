@@ -1,7 +1,7 @@
 import BaseController, { BaseRequest, Response, NextFunction } from "../BaseController";
 import { UserDto } from "../../../application/modules/users/dtos/UserDto";
 import { createUserUseCase, updateUserUserCase } from "./container/index";
-import { Session } from "../../../domain/session/Session";
+import { Session } from "../../../application/modules/session/models/Session";
 import authorization from "../../../infrastructure/middleware/authorization";
 
 class UserController extends BaseController {

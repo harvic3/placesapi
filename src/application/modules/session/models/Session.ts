@@ -8,7 +8,7 @@ export class Session {
   localId: number;
 
   static IsValidSession(session: Session): boolean {
-    if (!session || !session.uid || !session.email || !session.displayName) {
+    if (!session || !session.uid || !session.email || !session.displayName || !session.localId) {
       return false;
     }
     return true;

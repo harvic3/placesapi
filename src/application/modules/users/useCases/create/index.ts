@@ -1,9 +1,9 @@
 import { BaseUseCase, IResult, Result } from "../../../../shared/useCase/BaseUseCase";
 import { IUserRepository } from "../../serviceContracts/IUserRepository";
 import { IUserProvider } from "../../providerContracts/IUserProvider";
-import { Session } from "../../../../../domain/session/Session";
 import PhoneValidator from "../../../../shared/utils/PhoneValidator";
 import EmailValidator from "../../../../shared/utils/EmailValidator";
+import { Session } from "../../../session/models/Session";
 import { UserDto } from "../../dtos/UserDto";
 
 const phoneLength = 13;
@@ -15,7 +15,11 @@ export class CreateUserUseCase extends BaseUseCase {
 
   async Execute(userDto: UserDto, password: string, session: Session): Promise<IResult> {
     const result = new Result();
-    this.resources.Init(session.language);
+    if (
+      !this.validator.IsValidEntry(result, { Session: [() => Session.IsValidSession(session)] })
+    ) {
+      return result;
+    }
     if (
       !this.validator.IsValidEntry(result, {
         User: userDto,

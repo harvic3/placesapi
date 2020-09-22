@@ -1,5 +1,5 @@
 export class Historical {
-  historicalId: number;
-  eventDate: string;
-  search: string;
+  historicalId: number = null;
+  eventDate: string = null;
+  search: string = null;
 }

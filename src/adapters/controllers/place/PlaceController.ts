@@ -1,10 +1,8 @@
 import BaseController, { BaseRequest, Response, NextFunction } from "../BaseController";
-import { UserDto } from "../../../application/modules/users/dtos/UserDto";
-import { searchPlacesUseCase } from "./container/index";
-import { Session } from "../../../domain/session/Session";
-import authorization from "../../../infrastructure/middleware/authorization";
 import { SearchDto } from "../../../application/modules/places/dtos/SearchDto";
-import { serialize } from "v8";
+import { Session } from "../../../application/modules/session/models/Session";
+import authorization from "../../../infrastructure/middleware/authorization";
+import { searchPlacesUseCase } from "./container/index";
 
 class PlaceController extends BaseController {
   public constructor() {

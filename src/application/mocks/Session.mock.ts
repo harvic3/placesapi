@@ -1,4 +1,4 @@
-import { Session } from "../../domain/session/Session";
+import { Session } from "../modules/session/models/Session";
 
 const goodSession = new Session();
 goodSession.uid = "user-uid";

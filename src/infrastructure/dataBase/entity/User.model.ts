@@ -29,5 +29,5 @@ export class User {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @OneToMany((type) => Historical, (historical) => historical.user)
-  Historical: Historical[];
+  historical: Historical[];
 }

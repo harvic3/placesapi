@@ -3,7 +3,7 @@ import resources, { resourceKeys } from "../../../application/shared/locals/inde
 import * as resultCodes from "../../../application/shared/errors/codes.json";
 import { BaseRequest, Response, NextFunction } from "../../server/core/CoreModules";
 import fireBaseAdmin from "../../../adapters/providers/firebaseAdmin/index";
-import { Session } from "../../../domain/session/Session";
+import { Session } from "../../../application/modules/session/models/Session";
 import config from "../../config/index";
 
 export default function () {

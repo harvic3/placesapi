@@ -1,5 +1,5 @@
 import { BaseUseCase, IResult, IResultT, ResultT } from "../../../../shared/useCase/BaseUseCase";
-import { Session } from "../../../../../domain/session/Session";
+import { Session } from "../../../session/models/Session";
 import { SearchDto } from "../../dtos/SearchDto";
 import { IPlacesProvider } from "../../providerContracts/IPlaceProvider";
 import { IHistoricalRepository } from "../../../historical/serviceContracts/IHistoricalRepository";

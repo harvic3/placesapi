@@ -1,21 +1,32 @@
 import { IHistoricalRepository } from "../../../application/modules/historical/serviceContracts/IHistoricalRepository";
 import { Historical as HistoricalModel } from "../../../infrastructure/dataBase/entity/Historical.model";
+import { User as UserModel } from "../../../infrastructure/dataBase/entity/User.model";
 import { SearchDto } from "../../../application/modules/places/dtos/SearchDto";
 import { Historical } from "../../../domain/historical/Historical";
 import dataBase from "../../../infrastructure/dataBase/index";
+import * as moment from "moment";
 import mapper from "mapper-tsk";
 
 export class HistoricalRepository implements IHistoricalRepository {
-  async Get(userId: number): Promise<Historical[]> {
-    const entities = await dataBase.connection
-      .getRepository(HistoricalModel)
-      .createQueryBuilder("historical")
-      .where("historical.userId = :id", { id: userId })
-      .getMany();
-    if (!entities) {
+  async Get(userUid: string, startDate: string, endDate: string): Promise<Historical[]> {
+    if (!endDate) {
+      endDate = moment().format("YYYY-MM-DD");
+    }
+    const entity = await dataBase.connection
+      .createQueryBuilder(UserModel, "user")
+      .innerJoinAndSelect("user.historical", "historical")
+      .where("user.uid = :uid", { uid: userUid })
+      .andWhere("DATE(historical.eventDate) >= :start", {
+        start: moment(startDate).startOf("day").format("YYYY-MM-DD"),
+      })
+      .andWhere("DATE(historical.eventDate) <= :end", {
+        end: moment(endDate).endOf("day").format("YYYY-MM-DD"),
+      })
+      .getOne();
+    if (!entity) {
       return null;
     }
-    return mapper.MapArray<HistoricalModel, Historical>(entities, () =>
+    return mapper.MapArray<HistoricalModel, Historical>(entity.historical, () =>
       mapper.Activator(Historical),
     );
   }

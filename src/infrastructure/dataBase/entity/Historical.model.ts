@@ -24,7 +24,7 @@ export class Historical {
   userId: number;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  @ManyToOne((type) => User, (user) => user.Historical)
+  @ManyToOne((type) => User, (user) => user.historical)
   @JoinColumn({ name: "userId", referencedColumnName: "userId" })
   user: User;
 }
